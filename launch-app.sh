@@ -1,2 +1,1 @@
-dcos marathon app add haproxy.json
-dcos marathon app add shipconsole.json
+dcos marathon app add sampleApp.json
