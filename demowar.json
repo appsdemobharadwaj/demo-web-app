@@ -1,6 +1,6 @@
 {
    "volumes":null,
-   "id":"/demowar",
+   "id":"/sampleApp",
    "cmd":"catalina.sh run",
    "args":null,
    "user":null,

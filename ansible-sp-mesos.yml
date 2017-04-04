@@ -3,7 +3,7 @@
   hosts: localhost
   tasks: 
     - 
-      command: "dcos marathon app add sampleapp.json"
+      command: "dcos marathon app add demowar.json"
       name: "Deploy Mesos Application"
       register: docker
     - 

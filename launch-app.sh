@@ -1,1 +1,1 @@
-dcos marathon app add sampleApp.json
+dcos marathon app add demowar.json
