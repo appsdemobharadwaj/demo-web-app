@@ -1,4 +1,4 @@
-      name: "Deploy Mesos Application"
+      name: "Deploy Mesos Application  "
       register: docker
     - 
       command: "ant war"
