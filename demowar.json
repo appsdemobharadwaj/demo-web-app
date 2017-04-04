@@ -1,49 +1,67 @@
 {
-   "volumes":null,
-   "id":"/demowar",
-   "cmd":"catalina.sh run",
-   "args":null,
-   "user":null,
-   "env":null,
-   "instances":1,
-   "cpus":1,
-   "mem":1024,
-   "disk":0,
-   "gpus":0,
-   "executor":null,
-   "constraints":null,
-   "fetch":null,
-   "storeUrls":null,
-   "backoffSeconds":1,
-   "backoffFactor":1.15,
-   "maxLaunchDelaySeconds":3600,
-   "container":{
-      "docker":{
-         "image":"bharadwajsnp/mckinsey-sp:latest",
-         "forcePullImage":false,
-         "privileged":false,
-         "portMappings":[
-            {
-               "containerPort":8080,
-               "protocol":"tcp",
-               "servicePort":10004
-            }
-         ],
-         "network":"BRIDGE"
-      }
-   },
-   "readinessChecks":null,
-   "dependencies":null,
-   "upgradeStrategy":{
-      "minimumHealthCapacity":1,
-      "maximumOverCapacity":1
-   },
-   "labels":{
-      "HAPROXY_GROUP":"external"
-   },
-   "acceptedResourceRoles":null,
-   "residency":null,
-   "secrets":null,
-   "taskKillGracePeriodSeconds":null,
-   "requirePorts":false
+  "volumes": null,
+  "id": "/demo-war",
+  "cmd": null,
+  "args": null,
+  "user": null,
+  "env": null,
+  "instances": 1,
+  "cpus": 1,
+  "mem": 1024,
+  "disk": 0,
+  "gpus": 0,
+  "executor": null,
+  "constraints": null,
+  "fetch": null,
+  "storeUrls": null,
+  "backoffSeconds": 1,
+  "backoffFactor": 1.15,
+  "maxLaunchDelaySeconds": 3600,
+  "container": {
+    "docker": {
+      "image": "bharadwajsnp/mckinsey-sp:latest",
+      "forcePullImage": false,
+      "privileged": false,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp",
+          "servicePort": 80
+        }
+      ],
+      "network": "BRIDGE"
+    }
+  },
+  "healthChecks": [
+    {
+      "protocol": "HTTP",
+      "path": "/",
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "ignoreHttp1xx": false
+    }
+  ],
+  "readinessChecks": null,
+  "dependencies": null,
+  "upgradeStrategy": {
+    "minimumHealthCapacity": 1,
+    "maximumOverCapacity": 1
+  },
+  "labels": {
+    "HAPROXY_GROUP": "external"
+  },
+  "acceptedResourceRoles": null,
+  "residency": null,
+  "secrets": null,
+  "taskKillGracePeriodSeconds": null,
+  "portDefinitions": [
+    {
+      "port": 80,
+      "protocol": "tcp",
+      "labels": {}
+    }
+  ],
+  "requirePorts": false
 }
